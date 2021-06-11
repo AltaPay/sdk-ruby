@@ -3,10 +3,9 @@ require 'webmock/rspec'
 require 'httparty'
 require 'active_support'
 require 'pensio_api'
-require_relative './support/helpers'
+require './spec/support/helpers'
 
 RSpec.configure do |config|
-  config.treat_symbols_as_metadata_keys_with_true_values = true
   config.run_all_when_everything_filtered = true
   config.filter_run :focus
 

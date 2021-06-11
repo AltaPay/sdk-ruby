@@ -46,7 +46,7 @@ describe PensioAPI::Request do
       let(:request) { PensioAPI::Request.new('/test') }
 
       it 'returns false' do
-        expect(request.response_contains?('Test')).to be_false
+        expect(request.response_contains?('Test')).to be false
       end
     end
   end

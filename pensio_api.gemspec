@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'guard', '~> 2.2.5'
   s.add_development_dependency 'guard-rspec', '~> 4.2.4'
 
-  s.add_dependency 'httparty', '>= 0.12.0'
+  s.add_dependency 'httparty', '>= 0.18.0'
   s.add_dependency 'activesupport', '>= 3.2'
   s.add_dependency 'multi_xml', '>= 0.5.2'
 end
