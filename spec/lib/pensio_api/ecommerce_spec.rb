@@ -11,7 +11,8 @@ describe PensioAPI::Ecommerce do
     it 'returns an instance of PensioAPI::Responses::GatewayURL' do
       expect(PensioAPI::Request).to receive(:post).with("/merchant/API/createPaymentRequest",
         { :basic_auth=>{:username=>"test_user", :password=>"password"},
-          :headers=>{"Content-Type"=>"application/x-www-form-urlencoded; charset=utf-8"},
+          :headers=>{"Content-Type"=>"application/x-www-form-urlencoded; charset=utf-8",
+                     'x-altapay-client-version' => "RUBYSDK/#{PensioAPI::VERSION}"},
           :body=>{:terminal=>"Pensio Test Terminal",
           :shop_orderid=>"Test Payment",
           :amount=>123.45,
