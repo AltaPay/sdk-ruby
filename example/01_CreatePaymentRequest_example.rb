@@ -1,5 +1,3 @@
-
-#Required if pensio_api library not in $LOAD_PATH
 $:.unshift File.dirname(__FILE__)+ '/../lib/'
 
 require 'httparty'
@@ -10,10 +8,11 @@ PensioAPI::Credentials.username = 'test_user'
 PensioAPI::Credentials.password = 'password'
 
 options = {
-    'terminal' => 'AltaPay Test Terminal',
-    'shop_orderid' => 'Ruby_Test_Order123',
-    'amount' => 12.22,
-    'currency' => "EUR"
+      'terminal' => 'AltaPay Test Terminal',
+      'shop_orderid' => 'Ruby_Test_Order123',
+      'amount' => 12.22,
+      'currency' => 'EUR',
+      'type' => 'paymentAndCapture'
 }
 
 puts PensioAPI::Ecommerce.create_payment_request(options).url

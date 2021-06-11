@@ -20,10 +20,10 @@ module PensioAPI
       @acquirer = @raw['Acquirer']
       @funding_date = Date.parse(@raw['FundingDate'])
       @created_at = Date.parse(@raw['CreatedDate'])
-      @download_link = @raw['DownloadLink']
+      @download_link = @raw['DownloadLink'].strip
     end
 
-    def download(options={})
+    def download(options = {})
       @result ||= FundingListRequest.new(@download_link, options).result
     end
   end
