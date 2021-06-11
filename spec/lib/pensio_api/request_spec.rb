@@ -40,7 +40,7 @@ describe PensioAPI::Request do
 
     context 'with an empty response body' do
       before :each do
-        PensioAPI::Request.stub(:post).and_return(construct_response(nil))
+        allow(PensioAPI::Request).to receive(:post).and_return(construct_response(nil))
       end
 
       let(:request) { PensioAPI::Request.new('/test') }
@@ -53,7 +53,9 @@ describe PensioAPI::Request do
 
   describe '.request_options' do
     before :each do
-      PensioAPI::Request.stub(:post).and_return(construct_response(nil))
+      #PensioAPI::Request.stub(:post).and_return(construct_response(nil))
+      allow(PensioAPI::Request).to receive(:post).and_return(construct_response(nil))
+
     end
 
     let(:p) { PensioAPI::Request.new('/test') }
