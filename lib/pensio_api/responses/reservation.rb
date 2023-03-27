@@ -3,7 +3,7 @@ module PensioAPI
     class Reservation < Transaction
 
       def each
-        [reservation, charge].each { |t| yield t }
+        [reservation, charge, redirectUrl].each { |t| yield t }
       end
 
       def reservation
@@ -13,7 +13,11 @@ module PensioAPI
       def charge
         @transactions.last
       end
-      
+
+      def redirectUrl
+        @raw.has_key?('RedirectUrl') ? @raw['RedirectUrl'] : nil
+      end
+
     end
   end
 end
