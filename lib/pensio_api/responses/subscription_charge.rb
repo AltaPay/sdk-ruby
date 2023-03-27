@@ -16,6 +16,11 @@ module PensioAPI
       def new
         @transactions.last
       end
+
+      def redirectUrl
+        @raw.has_key?('RedirectResponse') ? @raw['RedirectResponse']['Url'] : nil
+      end
+      
     end
   end
 end
