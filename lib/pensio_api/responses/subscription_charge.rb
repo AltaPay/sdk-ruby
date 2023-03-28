@@ -3,7 +3,7 @@ module PensioAPI
     class SubscriptionCharge < Responses::Transaction
       extend Forwardable
 
-      attr_reader : redirect_url
+      attr_reader :redirect_url
       def_delegators :new, :captured?
 
       def each

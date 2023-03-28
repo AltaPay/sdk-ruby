@@ -1,9 +1,10 @@
 module PensioAPI
   module Responses
     class Reservation < Transaction
-      attr_reader : redirect_url
+      attr_reader :redirect_url
+      
       def each
-        [reservation, charge, redirectUrl].each { |t| yield t }
+        [reservation, charge].each { |t| yield t }
       end
 
       def reservation
@@ -13,7 +14,7 @@ module PensioAPI
       def charge
         @transactions.last
       end
-      
+
       def redirect_url
         @redirect_url = @raw.has_key?('RedirectUrl') ? @raw['RedirectUrl'] : nil
       end
