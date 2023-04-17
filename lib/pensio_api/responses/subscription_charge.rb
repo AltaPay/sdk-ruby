@@ -3,6 +3,7 @@ module PensioAPI
     class SubscriptionCharge < Responses::Transaction
       extend Forwardable
 
+      attr_reader :redirect_url
       def_delegators :new, :captured?
 
       def each
@@ -16,6 +17,11 @@ module PensioAPI
       def new
         @transactions.last
       end
+
+      def redirect_url
+        @redirect_url = @raw.has_key?('RedirectResponse') ? @raw['RedirectResponse']['Url'] : nil
+      end
+      
     end
   end
 end
