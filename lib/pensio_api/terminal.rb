@@ -9,8 +9,9 @@ module PensioAPI
     attr_reader :terminal_methods
 
     def self.all
-      request = Request.new('/merchant/API/getTerminals')
-      Responses::Terminal.new(request)
+      request = PensioAPI::Request.new('/merchant/API/getTerminals', method: 'GET')
+      response = Responses::Terminal.new(request)
+      response.terminals
     end
 
     def initialize(terminal_body)
