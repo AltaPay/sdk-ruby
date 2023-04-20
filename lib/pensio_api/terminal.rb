@@ -10,8 +10,7 @@ module PensioAPI
 
     def self.all
       request = PensioAPI::Request.new('/merchant/API/getTerminals', method: 'GET')
-      response = Responses::Terminal.new(request)
-      response.terminals
+      Responses::Terminal.new(request)
     end
 
     def initialize(terminal_body)
