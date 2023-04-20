@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [0.3.9]
+
+- Enforce the right HTTP methods on all API endpoints.
+
 ## [0.3.8]
 
 - Add redirect response as success in reservation.
