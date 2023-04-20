@@ -108,7 +108,7 @@ describe PensioAPI::Request do
   describe 'error handling' do
     context 'with a bad request' do
       before :each do
-        stub_pensio_response('/merchant/API/payments', 'bad_request_error')
+        stub_pensio_response('/merchant/API/payments', 'bad_request_error', http_verb: 'GET')
       end
 
       it 'raises a PensioAPI::Errors::BadRequest error' do
@@ -118,7 +118,7 @@ describe PensioAPI::Request do
 
     context 'with a gateway error' do
       before :each do
-        stub_pensio_response('/merchant/API/payments', 'pensio_error')
+        stub_pensio_response('/merchant/API/payments', 'pensio_error', http_verb: 'GET')
       end
 
       it 'raises a PensioAPI::Errors::GatewayError' do

@@ -7,15 +7,31 @@ module Helpers
     file_ext = options[:file_ext] || 'xml'
     mime_type = options[:mime_type] || 'application/xml'
     base_url = options[:base_url] || 'https://test_user:password@testgateway.pensio.com'
-    stub_request(:post, "#{base_url}#{path}")
-      .to_return(
-        body: file_fixture("#{fixture}.#{file_ext}"),
-        status: 200,
-        headers: {
-          'Content-Type' => mime_type
-        }
-      )
+
+    if options[:http_verb] == 'GET'
+      stub_request(:get, "#{base_url}#{path}")
+        .to_return(
+          body: file_fixture("#{fixture}.#{file_ext}"),
+          status: 200,
+          headers: {
+            'Content-Type' => mime_type
+          }
+        )
+    else
+      stub_request(:post, "#{base_url}#{path}")
+        .to_return(
+          body: file_fixture("#{fixture}.#{file_ext}"),
+          status: 200,
+          headers: {
+            'Content-Type' => mime_type
+          }
+        )
+    end
+
+
   end
+
+
 
   def construct_response(hash)
     OpenStruct.new(

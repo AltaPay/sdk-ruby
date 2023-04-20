@@ -2,8 +2,8 @@ require 'spec_helper'
 
 describe PensioAPI::Transaction do
   before :each do
-    stub_pensio_response('/merchant/API/payments', 'payments')
-    stub_pensio_response('/merchant/API/getTerminals', 'get_terminals')
+    stub_pensio_response('/merchant/API/payments', 'payments', http_verb: 'GET')
+    stub_pensio_response('/merchant/API/getTerminals', 'get_terminals', http_verb: 'GET')
     stub_pensio_response('/merchant/API/refundCapturedReservation', 'refund_captured_reservation')
   end
 

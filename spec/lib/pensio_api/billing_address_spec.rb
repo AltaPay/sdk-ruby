@@ -2,7 +2,8 @@ require 'spec_helper'
 
 describe PensioAPI::BillingAddress do
   before :each do
-    stub_pensio_response('/merchant/API/payments', 'payments')
+    stub_pensio_response('/merchant/API/payments', 'payments', http_verb: 'GET')
+
   end
 
   let(:transaction) { PensioAPI::Transaction.find.first }
