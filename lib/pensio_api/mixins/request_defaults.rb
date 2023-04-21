@@ -22,38 +22,27 @@ module PensioAPI
 
         self.class.base_uri @credentials.base_uri unless self.class.base_uri
 
-        request_options = options.reject { |key, value| key == :method }
+        request_options = request_options(options)
         if options[:method].to_s == "GET"
-          @response = get_request(path, request_options)
+          @response = self.class.get(path, request_options)
         else
-          @response = post_request(path, options)
+          request_options[:body] = options
+          @response = self.class.post(path, request_options)
         end
       end
 
       private
 
-      def get_request(path, options)
+      def request_options(options)
         timeout = options.delete(:timeout)
-        request_options = {
-          basic_auth: auth,
-          headers: (options.delete(:headers) || {}).merge(HEADERS)
-        }.tap do |request_options|
-          request_options[:timeout] = timeout if timeout
-        end
-        self.class.get(path, request_options)
-      end
-      
-      def post_request(path, options)
-        timeout = options.delete(:timeout)
-        request_options = {
+        {
           basic_auth: auth,
           headers: (options.delete(:headers) || {}).merge(HEADERS),
-          body: options
+          body: (options[:method].to_s == "GET") ? {} : options
         }.tap do |request_options|
           request_options[:timeout] = timeout if timeout
         end
-        self.class.post(path, request_options)
-      end  
+      end
 
       def auth
         {
