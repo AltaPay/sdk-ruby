@@ -22,12 +22,11 @@ module PensioAPI
 
         self.class.base_uri @credentials.base_uri unless self.class.base_uri
 
-        request_options = request_options(options)
+        request_params = request_options(options)
         if options[:method].to_s == "GET"
-          @response = self.class.get(path, request_options)
+          @response = self.class.get(path, request_params)
         else
-          request_options[:body] = options
-          @response = self.class.post(path, request_options)
+          @response = self.class.post(path, request_params)
         end
       end
 
