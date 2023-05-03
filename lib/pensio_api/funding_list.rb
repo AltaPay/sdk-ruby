@@ -8,7 +8,8 @@ module PensioAPI
     attr_reader :download_link
 
     def self.all(options={})
-      request = Request.new('/merchant/API/fundingList', options)
+      query_params = URI.encode_www_form(options)
+      request = Request.new("/merchant/API/fundingList?#{query_params}", { method: 'GET' })
       Responses::FundingList.new(request)
     end
 

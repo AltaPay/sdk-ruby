@@ -52,7 +52,8 @@ module PensioAPI
     end
 
     def self.find(options={})
-      request = Request.new('/merchant/API/payments', options)
+      query_params = URI.encode_www_form(options)
+      request = Request.new("/merchant/API/payments?#{query_params}", { method: 'GET' })
       Responses::Transaction.new(request)
     end
 
