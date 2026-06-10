@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [0.4.0]
+
+- Add support for `checkoutSession` API method.
+
 ## [0.3.9]
 
 - Enforce the right HTTP methods on all API endpoints.

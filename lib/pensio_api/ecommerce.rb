@@ -9,5 +9,10 @@ module PensioAPI
       request = Request.new('/merchant/API/createMultiPaymentRequest', options)
       Responses::GatewayURL.new(request)
     end
+
+    def self.checkout_session(options={})
+      request = Request.new('/merchant/API/checkoutSession', options)
+      Responses::CheckoutSession.new(request)
+    end
   end
 end
