@@ -57,7 +57,7 @@ describe PensioAPI::Ecommerce do
             'User-Agent' => "sdk-ruby/#{PensioAPI::VERSION}"
           },
           body: {
-            terminal: 'Pensio Test Terminal',
+            terminal: 'AltaPay Test Terminal',
             shop_orderid: 'Test Payment',
             amount: 123.45,
             currency: 'eur',

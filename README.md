@@ -75,7 +75,7 @@ PensioAPI::Ecommerce is a module which exposes the eCommerce API endpoints. Two 
 
 ## Checkout Session
 
-`PensioAPI::Ecommerce.checkout_session` creates a checkout session via the AltaPay `checkoutSession` API endpoint. The `terminals` option (an array of terminal names) is required, along with the standard payment parameters such as `shop_orderid`, `amount` and `currency`. The returned `PensioAPI::Responses::CheckoutSession` exposes `.session_id` and `.session_status`.
+`PensioAPI::Ecommerce.checkout_session` creates a checkout session via the AltaPay `checkoutSession` API endpoint. The `terminals` option (an array of terminal names available to the customer) is required. You may also pass a `terminal` (singular) option to set the default/selected terminal, along with the standard payment parameters such as `shop_orderid`, `amount`, `currency` and an optional client-side `session_id`. The returned `PensioAPI::Responses::CheckoutSession` exposes `.session_id` and `.session_status`.
 
 ## Callbacks
 

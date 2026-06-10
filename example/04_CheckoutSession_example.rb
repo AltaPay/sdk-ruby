@@ -20,7 +20,8 @@ checkout_options = {
     'amount'       => 12.22,
     'currency'     => 'EUR',
     'type'         => 'payment',
-    'session_id'   => session_id
+    'session_id'   => session_id,
+    'terminal'     => 'AltaPay Test Terminal'
 }
 
 checkout_response = PensioAPI::Ecommerce.checkout_session(checkout_options)
