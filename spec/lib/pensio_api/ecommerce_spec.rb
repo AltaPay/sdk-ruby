@@ -34,9 +34,10 @@ describe PensioAPI::Ecommerce do
   end
 
   describe '.checkout_session' do
+    let(:altapay_test_terminal) { 'AltaPay Test Terminal' }
     let(:options) do
       reservation_arguments.merge(
-        terminals: ['AltaPay Test Terminal'],
+        terminals: [altapay_test_terminal],
         session_id: 'session-id-1',
         type: 'payment'
       )
@@ -57,11 +58,11 @@ describe PensioAPI::Ecommerce do
             'User-Agent' => "sdk-ruby/#{PensioAPI::VERSION}"
           },
           body: {
-            terminal: 'AltaPay Test Terminal',
+            terminal: altapay_test_terminal,
             shop_orderid: 'Test Payment',
             amount: 123.45,
             currency: 'eur',
-            terminals: ['AltaPay Test Terminal'],
+            terminals: [altapay_test_terminal],
             session_id: 'session-id-1',
             type: 'payment'
           }
