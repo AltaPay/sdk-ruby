@@ -37,6 +37,7 @@ describe PensioAPI::Ecommerce do
     let(:altapay_test_terminal) { 'AltaPay Test Terminal' }
     let(:options) do
       reservation_arguments.merge(
+        terminal: altapay_test_terminal,
         terminals: [altapay_test_terminal],
         session_id: 'session-id-1',
         type: 'payment'
