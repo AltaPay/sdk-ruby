@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<APIResponse version="20100929">
+  <Header>
+    <Date>2026-05-08T12:34:56+02:00</Date>
+    <Path>API/checkoutSession</Path>
+    <ErrorCode>0</ErrorCode>
+    <ErrorMessage></ErrorMessage>
+  </Header>
+  <Body>
+    <Result>Success</Result>
+    <Session>
+      <Id>some-session-id</Id>
+      <Status>CREATED</Status>
+    </Session>
+  </Body>
+</APIResponse>

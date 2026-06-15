@@ -15,7 +15,7 @@ gem install pensio_api
 if You are using Rails or bundler application then add following line in your `Gemfile`
 
 ```
-gem "pensio_api", "~> 0.3.9"
+gem "pensio_api", "~> 0.4.0"
 ```
 
 First, register your AltaPay credentials. For example, if you're using rails, create `config/initializers/pensio.rb` with the following contents:
@@ -72,6 +72,10 @@ With an existing subscription, use `.reserve_charge` to place a charge reservati
 ## eCommerce
 
 PensioAPI::Ecommerce is a module which exposes the eCommerce API endpoints. Two module methods `.create_payment_request` and `.create_multi_payment_request` can be used to generate payment URLs for a multitude of payment types. Consult the AltaPay eCommerce API documentation for parameter details.
+
+## Checkout Session
+
+`PensioAPI::Ecommerce.checkout_session` creates a checkout session via the AltaPay `checkoutSession` API endpoint. The `terminals` option (an array of terminal names available to the customer) is required. You may also pass a `terminal` (singular) option to set the default/selected terminal, along with the standard payment parameters such as `shop_orderid`, `amount`, `currency` and an optional client-side `session_id`. The returned `PensioAPI::Responses::CheckoutSession` exposes `.session_id` and `.session_status`.
 
 ## Callbacks
 
